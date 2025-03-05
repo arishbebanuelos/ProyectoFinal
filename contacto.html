@@ -39,24 +39,37 @@
         <form>
             <!-- Campo de correo -->
             <div class="mb-3">
-                <label for="email" class="form-label">Nombre completo</label>
-                <input class="form-control" type="email" id="email" placeholder="Ingresa tu correo" required>
+                <label for="nombre" class="form-label">Nombre</label>
+                <input class="form-control" type="text" id="name" placeholder="Ingresa tu nombre" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apelido</label>
+                <input class="form-control" type="text" id="lastname" placeholder="Ingresa tu apellido" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input class="form-control" type="number" id="age" placeholder="Ingresa tu edad" required>
             </div>
 
             <!-- Campo de contraseña -->
             <div class="mb-3">
                 <label for="password" class="form-label">Correo Electrónico</label>
-                <input class="form-control" type="password" id="password" placeholder="Ingresa tu contraseña" required>
-            </div>
-
-            <!-- Botón de registro -->
-            <div class="mb-3">
-                <button class="btn btn-primary" type="submit">Registrar</button>
+                <input class="form-control" type="text" id="email" placeholder="Ingresa tu correo" required>
             </div>
         </form>
+            <!-- Botón de registro -->
+            <div class="mb-3">
+                <button class="btn btn-primary" onclick="registrar()" type="submit">Registrar</button>
+            </div>
+    
     </main>
 
-    <script src="./scripts/scripts.js"></script>
+    <div id="list">
+        
+    </div>
+    <script src="./contacto.js/contacto.js"></script>
 </body>
 
 </html>
