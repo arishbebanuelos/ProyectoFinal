@@ -39,6 +39,7 @@ function display(Cliente){
 
 let cliente1 = new Cliente("Daniel","Hernandez",30,"daniel@gmail.com")
 
+
 console.log(cliente1);
 
 display(cliente1);

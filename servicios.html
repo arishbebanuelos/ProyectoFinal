@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+<!-- Menú de navegación -->
+<nav class="menu-nav">
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sucursales.html">Sucursales</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="serviciocliente.html" class="active">Servicio al Cliente</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+    </ul>
+</nav>
+
+<!-- Contenedor de Servicios -->
+<main class="services-container">
+    <h1>Nuestros Servicios</h1>
+
+    <!-- Pestañas -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="showTab('nacionales')">Envíos Nacionales</button>
+        <button class="tab-button" onclick="showTab('internacionales')">Envíos Internacionales</button>
+    </div>
+
+    <!-- Contenido de Envíos Nacionales -->
+    <div id="nacionales" class="tab-content active">
+        <h2>Envíos Nacionales</h2>
+        <p>Ofrecemos servicios de envíos rápidos y seguros dentro del país. Nuestro sistema garantiza:</p>
+        <ul>
+            <li>Entrega en 24 a 72 horas en todo el territorio nacional.</li>
+            <li>Seguimiento en tiempo real de los paquetes.</li>
+            <li>Seguros contra pérdida o daño.</li>
+            <li>Opciones de entrega exprés y estándar.</li>
+        </ul>
+        <img src="https://cdn.pixabay.com/photo/2016/06/01/08/57/package-1421889_1280.png" alt="Envíos Nacionales">
+    </div>
+
+    <!-- Contenido de Envíos Internacionales -->
+    <div id="internacionales" class="tab-content">
+        <h2>Envíos Internacionales</h2>
+        <p>Llegamos a cualquier parte del mundo con nuestro servicio internacional, brindando:</p>
+        <ul>
+            <li>Envíos a más de 200 países.</li>
+            <li>Gestión de trámites aduanales.</li>
+            <li>Opciones de envío aéreo y marítimo.</li>
+            <li>Entrega garantizada con rastreo 24/7.</li>
+        </ul>
+        <img src="https://cdn.pixabay.com/photo/2018/03/10/12/00/container-3211786_1280.jpg" alt="Envíos Internacionales">
+    </div>
+
+</main>
+
+<script>
+    function showTab(tabName) {
+        // Ocultar todos los contenidos
+        document.querySelectorAll('.tab-content').forEach(tab => {
+            tab.classList.remove('active');
+        });
+
+        // Remover 'active' de todos los botones
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+        });
+
+        // Mostrar la pestaña seleccionada
+        document.getElementById(tabName).classList.add('active');
+
+        // Activar el botón seleccionado
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>

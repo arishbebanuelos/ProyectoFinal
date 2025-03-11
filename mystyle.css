@@ -1,104 +1,100 @@
-/* Estilos generales */
+/* ----- ESTILOS GENERALES ----- */
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* ----- MENÚ DE NAVEGACIÓN ----- */
+.menu-nav {
+    background: #0073e6; /* Azul profesional */
+    padding: 10px 0;
+    text-align: center;
+}
+
+.menu-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     padding: 0;
 }
 
-/* Imagen grande de encabezado */
-.header {
-    position: relative;
-    text-align: center;
-    color: white;
+.menu-nav ul li {
+    display: inline;
 }
 
-.header-image {
+.menu-nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.menu-nav a:hover {
+    background: #005bb5;
+}
+
+/* ----- ENCABEZADO CON IMAGEN Y CONTRASTE ----- */
+.header {
+    position: relative;
     width: 100%;
-    height: 300px;
-    object-fit: cover;
-    
+    height: 50vh;
+    background: url('https://www.fieldeas.com/wp-content/uploads/2021/09/digitalizacio%CC%81n-documentacion-transporte.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Capa oscura para mejorar la legibilidad */
+.header::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .header-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 80%;
 }
 
 .header-content h1 {
     font-size: 2.5em;
-    margin: 0;
+    margin-bottom: 10px;
 }
 
-.header-content h2 {
-    font-size: 1.2em;
-    margin: 5px 0;
-}
-
+.header-content h2,
 .header-content h3 {
     font-size: 1.2em;
-    margin: 5px 0;
+    font-weight: normal;
 }
 
-/* Menú de navegación */
-.menu-nav ul {
-    display: flex;
-    list-style: none;
-    padding: 10px;
-    
-}
-
-.menu-nav {
-    height: 60px;
-    background-color: white;
-    padding-left: 20px;
-}
-
-.menu-nav a {
-    margin-right: 30px;
-}
-
-.menu-nav a:hover {
-    color: rgb(81, 191, 255);
-}
-
-
-
-
-/* Contenido principal */
+/* ----- CONTENIDO PRINCIPAL ----- */
 .main-flex {
     max-width: 900px;
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 20px;
-}
-
-.container {
-    padding: 15px;
+    background: white;
     border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    color: #000000;
-}
-
-h3 {
-    color: #000000;
-}
-
+/* ----- TABLAS ----- */
 .tabla-proyecto {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
     flex-direction: column;
     padding: 20px;
-    
 }
-
-
-/* Estilo de la tabla */
 
 table {
     width: 80%;
@@ -108,78 +104,203 @@ table {
     overflow: hidden;
 }
 
-
-/* Centrar el título */
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #fff;
-    font-size: 20px;
-    width: 100%;
-}
-
-
-/* Estilo de las celdas */
-
-th,
-td {
+th, td {
     padding: 12px 15px;
-    text-align: left;
+    text-align: center;
     border-bottom: 1px solid #ddd;
     font-size: 15px;
 }
 
-
-/* Estilo del encabezado */
-
 th {
-    background-color: #6fbeff;
-    color: rgb(0, 0, 0);
+    background-color: #0073e6;
+    color: rgb(255, 255, 255);
     font-weight: bold;
 }
 
-
-/* Fila alterna con fondo rosa claro */
-
 tbody tr:nth-child(even) {
-    background-color: #c2deff;
+    background-color: #0073e6;
     color: #000000;
 }
-.image-container
-{
+
+/* ----- IMÁGENES CON EFECTO ----- */
+.image-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 80%;
     max-width: 1000px;
     margin: 30px auto;
-    
 }
-.image-box{
-    text-align: center; /* Centra el texto con la imagen */
-    width: 40%; /* Controla el tamaño de cada imagen */
+
+.image-box {
+    text-align: center;
+    width: 40%;
 }
 
 .image-box img {
-width: 80%;
-max-width: 1000px;
-height: auto;
-border-radius: 10px;
-transition: transform 0.3s ease-in-out;
-cursor: pointer;
+    width: 80%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    cursor: pointer;
 }
-.image-box img:hover{
-border-radius:50%;
--webkit-border-radius:50%;
-box-shadow: 0px 0px 15px 15px #63b6fa;
--webkit-box-shadow: 0px 0px 15px 15px #aecbff;
-transform: rotate(360deg);
--webkit-transform: rotate(360deg);
+
+.image-box img:hover {
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 5px #0073e6;
+    transform: scale(1.05);
 }
-.image-desc{
+
+.image-desc {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 10px;
-    
+}
+
+/* ----- RESPONSIVE DESIGN ----- */
+@media (max-width: 768px) {
+    .menu-nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header {
+        height: 40vh;
+    }
+
+    .header-content {
+        max-width: 95%;
+    }
+
+    .image-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-box {
+        width: 100%;
+    }
+}
+
+/* ----- ESTILOS PARA PREGUNTAS FRECUENTES ----- */
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.faq-container h1 {
+    text-align: center;
+    color: #0073e6;
+}
+
+/* Estilos de cada pregunta */
+.faq-question {
+    width: 100%;
+    background: #0073e6;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.faq-question:hover {
+    background: #005bb5;
+}
+
+/* Contenedor de la respuesta */
+.faq-answer {
+    display: none;
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Mostrar respuesta cuando está activa */
+.faq-answer.active {
+    display: block;
+}
+
+
+/* ----- ESTILOS PARA LA SECCIÓN DE SERVICIOS ----- */
+.services-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.services-container h1 {
+    color: #0073e6;
+}
+
+/* Pestañas */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    background: #0073e6;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.tab-button:hover {
+    background: #005bb5;
+}
+
+.tab-button.active {
+    background: #004a99;
+}
+
+/* Contenido de las pestañas */
+.tab-content {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    color: #0073e6;
+}
+
+.tab-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.tab-content img {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio al Cliente</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+
+<!-- Menú de navegación -->
+<nav class="menu-nav">
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="sucursales.html">Sucursales</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="serviciocliente.html" class="active">Servicio al Cliente</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+    </ul>
+</nav>
+
+<!-- Sección de preguntas frecuentes -->
+<main class="faq-container">
+    <h1>Preguntas Frecuentes</h1>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Cómo puedo recuperar mi contraseña?</button>
+        <div class="faq-answer">
+            <p>Para recuperar tu contraseña, ve a la página de inicio de sesión y haz clic en "Olvidé mi contraseña". Sigue las instrucciones que te enviemos a tu correo.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿Qué documentos puedo digitalizar en la app?</button>
+        <div class="faq-answer">
+            <p>Puedes digitalizar órdenes de compra, facturas, guías de embarque, comprobantes de entrega, contratos y certificaciones.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">¿La aplicación es compatible con iOS y Android?</button>
+        <div class="faq-answer">
+            <p>Sí, nuestra aplicación está disponible tanto en la App Store de iOS como en Google Play para dispositivos Android.</p>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    // Script para abrir y cerrar respuestas
+    document.querySelectorAll(".faq-question").forEach(button => {
+        button.addEventListener("click", () => {
+            const answer = button.nextElementSibling;
+            answer.classList.toggle("active");
+
+            // Cerrar otras respuestas abiertas
+            document.querySelectorAll(".faq-answer").forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove("active");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
