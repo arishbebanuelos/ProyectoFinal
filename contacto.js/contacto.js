@@ -1,45 +1,82 @@
-function Cliente (nombre, apellido, edad, correo){
-    this.nombre=nombre;
-    this.apellido=apellido;
-    this.edad=edad;
-    this.correo=correo;
+// Constructor del cliente
+function Cliente(nombre, apellido, edad, correo) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = edad;
+    this.correo = correo;
 }
-function registrar(){
-    console.log("Registrando...");
-}
-  
+
+// Inputs
 const inputNombre = document.getElementById("name");
 const inputApellido = document.getElementById("lastname");
 const inputEdad = document.getElementById("age");
 const inputCorreo = document.getElementById("email");
-let p; 
 
-function registrar(){
+// Array de clientes desde localStorage o vacío
+let client = JSON.parse(localStorage.getItem("clientes")) || [];
 
-    let newcliente = new Cliente(inputNombre.value, inputApellido.value, inputEdad.value, inputCorreo.value );
-
-    if(inputNombre.value==""){
-        alert("ingresa el nombre");
-    }else{
-        display(newcliente);
+// Función para registrar un nuevo cliente
+function register() {
+    if (inputNombre.value.trim() === "") {
+        alert("Por favor ingresa el nombre");
+        return;
     }
-   
+
+    const nuevoCliente = new Cliente(
+        inputNombre.value.trim(),
+        inputApellido.value.trim(),
+        inputEdad.value.trim(),
+        inputCorreo.value.trim()
+    );
+
+    client.push(nuevoCliente);
+    localStorage.setItem("clientes", JSON.stringify(client));
+    displayClients();
+
+    // Limpiar formulario
+    inputNombre.value = "";
+    inputApellido.value = "";
+    inputEdad.value = "";
+    inputCorreo.value = "";
 }
 
-function display(Cliente){
+// Función para mostrar los clientes en la tabla
+function displayClients() {
     const list = document.getElementById("list");
-    p=`
-    <div> 
-        <p>${Cliente.nombre} - ${Cliente.apellido} - ${Cliente.edad} - ${Cliente.correo}</p>
-    </div>
-    `;
-    list.innerHTML+=p;// inserta en HTML
+    list.innerHTML = "";
+
+    client.forEach((cliente, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${cliente.nombre}</td>
+            <td>${cliente.apellido}</td>
+            <td>${cliente.edad}</td>
+            <td>${cliente.correo}</td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="deleteClient(${index})">Eliminar</button>
+            </td>
+        `;
+        list.appendChild(row);
+    });
 }
 
+// Eliminar cliente individual
+function deleteClient(index) {
+    if (confirm("¿Seguro que deseas eliminar este cliente?")) {
+        client.splice(index, 1);
+        localStorage.setItem("clientes", JSON.stringify(client));
+        displayClients();
+    }
+}
 
-let cliente1 = new Cliente("Daniel","Hernandez",30,"daniel@gmail.com")
+// Eliminar todos los clientes
+function clearStorage() {
+    if (confirm("¿Seguro que deseas eliminar todos los clientes?")) {
+        client = [];
+        localStorage.removeItem("clientes");
+        displayClients();
+    }
+}
 
-
-console.log(cliente1);
-
-display(cliente1);
+// Mostrar los clientes al cargar la página
+document.addEventListener("DOMContentLoaded", displayClients);
